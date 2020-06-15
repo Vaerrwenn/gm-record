@@ -1,0 +1,29 @@
+<div class="nav-wrapper">   
+    <ul class="left">
+        <li class="logo">
+            <%= link_to home_index_path do %>
+                <img src="/images/GM_Record.svg" alt="ERROR LOADING IMAGE" style="width: 50px; padding-top: 10px;" >
+            <% end %>
+        </li>
+        <li class="app-name">
+            <%= link_to  "GM Medan Portal", home_index_path %>
+        </li>
+        <li class="home nav-menu">
+            <%= link_to  "Home", home_index_path %>
+        </li>
+        <li class="gm-data nav-menu">
+            <%= link_to  "GM Data", members_path %>
+        </li>
+        <li class="event-data nav-menu">
+            <a>Event Data</a>
+        </li>
+    </ul>
+    <ul class="right">
+        <li>
+            <a class="regis-button btn" style="margin-right: 20px;">Register</a>
+        </li>
+        <li>
+             <a class="signin-button btn" style="margin-right: 20px;">Sign in</a>
+        </li>
+    </ul>
+</div>
