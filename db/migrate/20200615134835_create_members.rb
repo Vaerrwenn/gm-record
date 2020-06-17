@@ -10,6 +10,7 @@ class CreateMembers < ActiveRecord::Migration[6.0]
       t.date :date_of_birth
       t.string :place_of_birth
 
+      # add photo
       t.timestamps
     end
   end

@@ -21,7 +21,7 @@
  }
 
  body{
-     background-color: #191e27;
+     background-color: #212834;
      color: white !important;
  }
 
@@ -29,7 +29,7 @@
      background-color: #0f1319;
  } 
 
- .btn{
+ .nav-menu-btn{
      background-color: #191e27;
      transition: linear 0.5s;
  }
@@ -44,4 +44,12 @@
 
  .nav-menu:hover{
      background-color: #2b3850;
+ }
+
+ .container{
+    padding-top: 10px;
+}
+
+ main .btn{
+     background-color: #112d4e;
  }

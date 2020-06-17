@@ -3,4 +3,5 @@ class MembersController < ApplicationController
         @members = Member.all
     end
     
+    # Add age in show. 
 end
