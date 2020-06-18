@@ -1,0 +1,26 @@
+<%= simple_form_for @member, defaults: { wrapper_html: { class: 'row' } } do |f| %>
+    <%= f.input :name,
+        label: "Nama",
+        error: "Nama tidak boleh kosong!" %>
+    <%= f.input :phone,
+        label: "Nomor Telepon",
+        input_html: { onkeydown: "phoneNumCheck(event)" } %>
+    <%= f.input :address,
+        label: "Alamat" %>
+    <%= f.input :cetya,
+        label: "Cetya" %>
+    <%= f.input :gender,
+        label: "Jenis Kelamin", 
+        as: :select,
+        selected: 1,
+        collection: [["Laki-Laki", "Laki-Laki"], ["Perempuan", "Perempuan"], ["Lainnya", "Lainnya"]] %>
+    <%= f.input :education,
+        label: "Pendidikan" %>
+    <%= f.input :place_of_birth, 
+        label: "Tempat Lahir" %>
+    <%= f.input :date_of_birth, 
+        label: "Tanggal Lahir", 
+        as: :string,
+        input_html: { class: "datepicker" } %>
+    <%= f.button :submit, "Simpan" %>
+<% end %>

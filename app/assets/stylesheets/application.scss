@@ -15,6 +15,7 @@
  */
 
  @import "materialize";
+ @import 'materialize-css/dist/css/materialize';
 
  ul li a{
      color: white !important;
@@ -52,4 +53,30 @@
 
  main .btn{
      background-color: #112d4e;
+ }
+
+ input {
+     color: white;
+ }
+
+ input[type=number] {
+    -moz-appearance: textfield;
+ }
+
+ label {
+     color: white;
+ }
+
+ ul.dropdown-content.select-dropdown li span{
+    background-color: #212834;
+    color: white;
+ }
+
+ .datepicker-date-display{
+    background-color: #0f1319;
+ }
+
+ .datepicker-calendar-container{
+     background-color: #212834;
+     color: white;
  }
