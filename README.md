@@ -1,24 +1,23 @@
-# README
+# GM Recording
+Application to record events and members of GM Medan.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirements
+* [Ruby 2.6.5](https://www.ruby-lang.org/en/downloads/)
+* [Ruby on Rails 6.0.3.1](https://rubyonrails.org/)
+* [NodeJs](https://nodejs.org/en/download/)
+* [Yarn](https://yarnpkg.com/)
 
-Things you may want to cover:
+## Usage
+* Clone the repo
+* Run `bundle i` on terminal/command prompt
+* Run `yarn` on terminal/command prompt
+* Run `rails db:create` and `rails db:migrate`
+* To run the application locally, run `rails s`
 
-* Ruby version
+## Support
+Open issue and I'll try to help. These documentation may help too:
+* [Ruby Documentation](https://www.ruby-lang.org/en/documentation/)
+* [Rails Documentation](https://guides.rubyonrails.org/)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## TODO
+Finish the application.
