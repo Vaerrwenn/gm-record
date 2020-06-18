@@ -1,5 +1,5 @@
 # GM Recording
-Application to record events and members.
+Application to record events and members and their attendance.
 
 ## Requirements
 * [Ruby 2.6.5](https://www.ruby-lang.org/en/downloads/)
