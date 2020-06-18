@@ -1,5 +1,5 @@
 # GM Recording
-Application to record events and members of GM Medan.
+Application to record events and members.
 
 ## Requirements
 * [Ruby 2.6.5](https://www.ruby-lang.org/en/downloads/)
