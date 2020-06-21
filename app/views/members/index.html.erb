@@ -5,6 +5,18 @@
         <% end %>
     </div>
     <div class="row">
-        <h1>PUT ALL MEMBERS DESIGN HERE.</h1>
+        <% if @members.blank? %>
+            No data found!
+        <% else %>
+        <div class="flex-container">
+            <% @members.each do |m| %>
+                <div class="flex-content">
+                    <p class="name">
+                        <%= m.name %>
+                    </p>
+                </div>
+            <% end %>
+        </div>
+        <% end %>
     </div>
 </div>
