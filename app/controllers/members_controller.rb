@@ -1,6 +1,26 @@
 class MembersController < ApplicationController
     def index
-        @members = Member.all
+        @members = Member.all.order(name: :asc)
+
+        @members.each do |m|
+            m.age = age_counter(m.date_of_birth)
+            m.gender = gender_shorten(m.gender)
+        end
+    end
+
+    def age_counter(dob)
+        now = Time.now.utc.to_date
+        now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+    end
+
+    def gender_shorten(gender)
+        if gender == "Laki-Laki"
+            return "L"
+        elsif gender == "Perempuan"
+            return "P"
+        else
+            return "O"
+        end
     end
     
     def new
@@ -10,10 +30,8 @@ class MembersController < ApplicationController
     def create
         @member = Member.new(member_params)
         if @member.save
-          flash[:success] = "Member successfully created"
-          redirect_to @member
+          redirect_to members_path
         else
-          flash[:error] = "Something went wrong"
           render 'new'
         end
     end

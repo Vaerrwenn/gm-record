@@ -22,5 +22,8 @@
         label: "Tanggal Lahir", 
         as: :string,
         input_html: { class: "datepicker" } %>
-    <%= f.button :submit, "Simpan" %>
+    <%= f.button :submit, "Simpan Data" %>
+    <%= f.button :button, "Hapus Formulir", 
+        type: :reset, class: "btn-danger", 
+        style: "margin-left: 10px;" %>
 <% end %>
