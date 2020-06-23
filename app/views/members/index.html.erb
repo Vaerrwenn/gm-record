@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <%= link_to new_member_path, class: "add-member btn" do %>
+        <%= link_to new_member_path, class: "add-member btn tooltipped", data: { tooltip: "Add new member", position: "left" } do %>
             <i class="material-icons"> add </i>
         <% end %>
     </div>
@@ -10,7 +10,7 @@
         <% else %>
         <div class="flex-container">
             <% @members.each do |m| %>
-                <div class="flex-content">
+                <div class="flex-content tooltipped" data-tooltip="Click name to show detail">
                     <p class="name">
                         <b><%= link_to member_path(m) do %><%= m.name %><% end %></b>
                     </p>

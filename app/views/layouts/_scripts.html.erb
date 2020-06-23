@@ -7,4 +7,19 @@
         }
     };
 
+    $(document).ready(function(){
+        // Dropdown menu
+        $('select').formSelect();
+
+        // Date picker.
+        var thisYear = new Date().getFullYear()
+        $('.datepicker').datepicker({
+            yearRange: [thisYear - 50, thisYear]
+        });
+
+        $('.tooltipped').tooltip({
+            enterDelay: 700,
+        });
+    });
+
 </script>
