@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row show-title">
+        <h4><%= @member.name %></h4>
+        <div class="divider"></div>
+    </div>
+    <div class="row buttons">
+        <%= link_to edit_member_path, class: "btn btn-margin-r-10" do %>
+            <i class="material-icons">edit</i>
+        <% end %>
+        <%= link_to member_path, method: :delete, data: { confirm: 'Are you sure?' },
+        class: "btn btn-danger" do %>
+            <i class="material-icons">delete_forever</i>
+        <% end %>
+    </div>
+    <div class="row">
+        
+    </div>
+</div>

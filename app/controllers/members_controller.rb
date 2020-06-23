@@ -4,7 +4,6 @@ class MembersController < ApplicationController
 
         @members.each do |m|
             m.age = age_counter(m.date_of_birth)
-            m.gender = gender_shorten(m.gender)
         end
     end
 
@@ -13,28 +12,25 @@ class MembersController < ApplicationController
         now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
     end
 
-    def gender_shorten(gender)
-        if gender == "Laki-Laki"
-            return "L"
-        elsif gender == "Perempuan"
-            return "P"
-        else
-            return "O"
-        end
-    end
-    
     def new
         @member = Member.new
     end
 
     def create
         @member = Member.new(member_params)
+        @member.age = age_counter(@member.date_of_birth)
+        
         if @member.save
           redirect_to members_path
         else
           render 'new'
         end
     end
+
+    def show
+        @member = Member.find(params[:id])
+    end
+    
     
     private
 

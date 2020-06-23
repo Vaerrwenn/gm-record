@@ -12,9 +12,16 @@
             <% @members.each do |m| %>
                 <div class="flex-content">
                     <p class="name">
-                        <%= m.name %>
+                        <b><%= link_to member_path(m) do %><%= m.name %><% end %></b>
                     </p>
-                </div>
+                    <p class="gender-age">
+                        <span class="gender"><%= m.gender %></span>
+                        <span class="age right"><%= m.age %></span>
+                    </p>
+                    <p class="cetya">
+                        <%= m.cetya %>
+                    </p>
+                </div>                
             <% end %>
         </div>
         <% end %>
