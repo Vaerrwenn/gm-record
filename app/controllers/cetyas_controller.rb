@@ -1,0 +1,2 @@
+class CetyasController < ApplicationController
+end

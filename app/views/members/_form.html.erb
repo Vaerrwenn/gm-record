@@ -13,9 +13,13 @@
         label: "Jenis Kelamin", 
         as: :select,
         selected: 1,
-        collection: [["Laki-Laki", "Laki-Laki"], ["Perempuan", "Perempuan"], ["Lainnya", "Lainnya"]] %>
+        collection: [["-Pilih Jenis Kelamin-", ""], ["Laki-Laki", "Laki-Laki"], 
+                    ["Perempuan", "Perempuan"], ["Lainnya", "Lainnya"]],
+        error: "Tidak boleh kosong!" %>
     <%= f.input :education,
         label: "Pendidikan" %>
+    <%= f.input :line_id,
+        label: "ID Line"%>
     <%= f.input :place_of_birth, 
         label: "Tempat Lahir" %>
     <%= f.input :date_of_birth, 
