@@ -7,13 +7,17 @@
         input_html: { onkeydown: "phoneNumCheck(event)" } %>
     <%= f.input :address,
         label: "Alamat" %>
-    <%= f.input :cetya,
-        label: "Cetya" %>
+    <%= f.association  :cetya,
+        label: "Cetya",
+        error: "Harus dipilih",
+        collection: Cetya.all.order(:cetya_name),
+        label_method: :cetya_name,
+        prompt: "-Pilih Cetya-" %>
     <%= f.input :gender,
         label: "Jenis Kelamin", 
         as: :select,
-        selected: 1,
-        collection: [["-Pilih Jenis Kelamin-", ""], ["Laki-Laki", "Laki-Laki"], 
+        prompt: "-Pilih Jenis Kelamin-",
+        collection: [["Laki-Laki", "Laki-Laki"], 
                     ["Perempuan", "Perempuan"], ["Lainnya", "Lainnya"]],
         error: "Tidak boleh kosong!" %>
     <%= f.input :education,

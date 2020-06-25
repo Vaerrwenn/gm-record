@@ -9,21 +9,27 @@
             <%= link_to  "GM Medan Portal", home_index_path %>
         </li>
         <li class="home nav-menu">
-            <%= link_to  "Home", home_index_path %>
+            <%= link_to  "Beranda", home_index_path %>
         </li>
         <li class="gm-data nav-menu">
-            <%= link_to  "GM Data", members_path %>
+            <%= link_to  "Data GM", members_path %>
         </li>
         <li class="event-data nav-menu">
-            <a>Event Data</a>
+            <a>Data Acara</a>
+        </li>
+        <li class="other-data nav-menu dropdown-trigger" data-target="dropdown1">
+            <a href="#">Data lainnya</a>
+            <ul id="dropdown1" class="dropdown-content">
+                <li><%= link_to  "Data Cetya", cetyas_path %></li>
+            </ul>
         </li>
     </ul>
     <ul class="right">
         <li>
-            <a class="nav-menu-btn regis-button btn" style="margin-right: 10px;">Register</a>
+            <a class="nav-menu-btn regis-button btn" style="margin-right: 10px;">Daftar</a>
         </li>
         <li>
-             <a class="nav-menu-btn signin-button btn" style="margin-right: 20px;">Sign in</a>
+             <a class="nav-menu-btn signin-button btn" style="margin-right: 20px;">Masuk</a>
         </li>
     </ul>
 </div>
