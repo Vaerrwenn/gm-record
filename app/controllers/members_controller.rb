@@ -1,7 +1,8 @@
 class MembersController < ApplicationController
     def index
-        @members = Member.all.order(name: :asc)
-
+        @members = Member.select("members.*, cetyas.cetya_name")
+                         .joins("JOIN cetyas ON members.cetya_id = cetyas.id ")
+        # select members.*, cetyas.cetya_name from members join cetyas on m.cetya_id = c.id 
         @members.each do |m|
             m.age = change_date_null(m.date_of_birth)
         end
@@ -64,7 +65,7 @@ class MembersController < ApplicationController
     private
 
     def member_params
-        params.require(:member).permit(:name, :phone, :address, :cetya,
+        params.require(:member).permit(:name, :phone, :address, :cetya_id,
                                         :gender, :education, :date_of_birth,
                                         :place_of_birth, :line_id)
     end

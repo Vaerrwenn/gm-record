@@ -1,0 +1,6 @@
+<%= simple_form_for @cetya, defaults: { wrapper_html: { class: 'row' } } do |f| %>
+    <%= f.input :cetya_name,
+        label: "Name Cetya",
+        error: "Nama Cetya harus diisi!" %>
+    <%= f.button :submit, "Simpan Data", class: "btn-margin-r-10" %>
+<% end %>

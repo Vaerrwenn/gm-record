@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <%= link_to new_cetya_path, class: "add-ctya btn tooltipped", data: { tooltip: "Tambah Cetya baru", position: "left" } do %>
+            <i class="material-icons"> add </i>
+        <% end %>
+    </div>
+    <div class="row">
+        Daftar cetya-cetya yang ada
+    </div>
+    <% if @cetyas.blank? %>
+        <div class="row">
+            <div class="col l12 cetya-container">Data Kosong</div>
+        </div>
+    <% else %>
+        <div class="row">
+        <% @cetyas.each do |c| %>
+            <div class="col l12 cetya-container tooltipped" data-tooltip="Klik Nama Cetya untuk ubah nama">
+                <div class="cetya-data">
+                    <%= link_to edit_cetya_path(c) do %><%= c.cetya_name %> <% end %>
+                    <span class="right">
+                        <%= link_to cetya_path(c), method: :delete, data: { confirm: 'Are you sure?' },
+                            class: "btn btn-danger" do %>
+                                <i class="material-icons">delete_forever</i>
+                            <% end %>
+                    </span>
+                </div>
+            </div>
+        <% end %>
+        </div>
+    <% end %>
+</div>
