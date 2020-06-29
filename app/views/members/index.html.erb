@@ -10,7 +10,7 @@
         <% else %>
         <div class="flex-container">
             <% @members.each do |m| %>
-                <div class="flex-content tooltipped" data-tooltip="Klik Nama untuk lihat detail">
+                <div class="flex-content-members tooltipped" data-tooltip="Klik Nama untuk lihat detail">
                     <p class="name">
                         <b><%= link_to member_path(m) do %><%= m.name %><% end %></b>
                     </p>

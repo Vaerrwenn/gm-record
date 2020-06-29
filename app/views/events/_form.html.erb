@@ -1,0 +1,16 @@
+<%= simple_form_for @event, defaults: { wrapper_html: { class: 'row' } } do |f| %>
+    <%= f.input :name,
+        label: "Nama Acara",
+        error: "Nama Acara harus diisi!" %>
+    <%= f.input :start_date,
+        label: "Tanggal Acara",
+        error: "Tanggal Acara harus diisi!",
+        as: :string,
+        input_html: { class: "datepicker" } %>
+    <%= f.input :location,
+        label: "Lokasi Acara",
+        error: "Lokasi Acara harus diisi!" %>
+    <%= f.button :submit, "Simpan Data", class: "btn-margin-r-10" %>
+    <%= f.button :button, "Hapus Formulir", 
+        type: :reset, class: "btn btn-danger" %>
+<% end %>

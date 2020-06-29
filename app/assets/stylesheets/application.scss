@@ -102,21 +102,6 @@
      flex-wrap: wrap;
  }
 
- .flex-content{
-    background-color: #29303d;
-    width: 210px;
-    margin: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    box-shadow: 4px 4px 12px rgb(0, 0, 0);
-    transition: linear 0.2s;
- }
-
- .flex-content:hover{
-     background-color: #2e3644;
-    box-shadow: 8px 8px 8px black;
- }
-
  .name{
      font-size: 12pt;
      white-space: nowrap;

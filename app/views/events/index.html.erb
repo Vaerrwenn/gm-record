@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <%= link_to new_event_path, class: "add-event btn tooltipped", data: { tooltip: "Tambah Acara", position: "left" } do %>
+            <i class="material-icons"> add </i>
+        <% end %>
+    </div>
+    <div class="row">
+        <% if @events.blank? %>
+            <b>No data found!</b>
+        <% else %>
+        <div class="flex-container">
+            <% @events.each do |e| %>
+                <div class="flex-content-events tooltipped" data-tooltip="Klik Nama Acara untuk lihat detail">
+                    <p class="name">
+                        <b><%= link_to event_path(e) do %><%= e.name %><% end %></b>
+                    </p>
+                    <p class="date-att-num">
+                        <span class="start-date"><%= e.start_date.strftime("%d %B %Y") %></span>
+                        <span class="att-num right"><%= e.attendee_number %></span>
+                    </p>
+                    <p class="loc actions">
+                        <span class="loc">
+                            <%= e.location %>
+                        </span>
+                        <span class="delete right">
+                            <%= link_to event_path(e), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                                <i class="material-icons">delete_forever</i>
+                            <% end %>
+                        </span>
+                        <span class="edit right"style="margin-right: 10px;">
+                            <%= link_to edit_event_path(e) do %>
+                                <i class="material-icons">edit</i>
+                            <% end %>
+                        </span>
+                    </p>
+                </div>                
+            <% end %>
+        </div>
+        <% end %>
+    </div>
+</div>

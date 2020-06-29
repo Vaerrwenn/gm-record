@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row show-title">
+        <h4><%= @event.name %></h4>
+        <div class="divider"></div>
+    </div>
+    <div class="row">
+        <span class="col l4">Tanggal Acara: </span>
+        <span class="col l8">: <%= @event.start_date %></span>
+    </div>
+    <div class="row">
+        <span class="col l4">Lokasi Acara: </span>
+        <span class="col l8">: <%= @event.location %></span>
+    </div>
+    <div class="row">
+        <span class="col l4">Jumlah kehadiran: </span>
+        <span class="col l8">: <%= @event.attendee_number %></span>
+    </div>
+</div>
