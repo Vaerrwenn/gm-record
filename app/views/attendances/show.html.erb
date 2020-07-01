@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <h5>Data Kehadiran <%= @event.name %></h5>
+        <div class="divider"></div>
+    </div>
+    <div class="row">
+        <%= link_to new_attendance_path, class: "add-member btn tooltipped", data: { tooltip: "Add new member", position: "left" } do %>
+            <i class="material-icons"> add </i>
+        <% end %>
+    </div>
+    <div class="row">
+        <% if @attendees.blank? %>
+            No data found!
+        <% else %>
+        <div class="flex-container">
+            <% @attendees.each do |m| %>
+                <div class="flex-content-members tooltipped" data-tooltip="Klik Nama untuk lihat detail">
+                    <p class="name">
+                        <b><%= link_to member_path(m) do %><%= m.name %><% end %></b>
+                    </p>
+                    <p class="gender-age">
+                        <span class="gender"><%= m.gender %></span>
+                        <span class="age right"><%= m.age %></span>
+                    </p>
+                    <p class="cetya">
+                        <%= m.cetya_name %>
+                    </p>
+                </div>                
+            <% end %>
+        </div>
+        <% end %>
+    </div>
+</div>

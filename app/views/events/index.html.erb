@@ -27,9 +27,14 @@
                                 <i class="material-icons">delete_forever</i>
                             <% end %>
                         </span>
-                        <span class="edit right"style="margin-right: 10px;">
+                        <span class="edit right" style="margin-right: 10px;">
                             <%= link_to edit_event_path(e) do %>
                                 <i class="material-icons">edit</i>
+                            <% end %>
+                        </span>
+                        <span class="attendance right" style="margin-right: 10px;">
+                            <%= link_to attendance_path(e) do %>
+                                <span class="material-icons">list</span>
                             <% end %>
                         </span>
                     </p>
