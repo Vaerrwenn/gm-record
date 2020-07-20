@@ -5,6 +5,9 @@
         <% end %>
     </div>
     <div class="row">
+        <%= render  "search_form" %>
+    </div>
+    <div class="row">
         <% if @members.blank? %>
             No data found!
         <% else %>
@@ -17,9 +20,6 @@
                     <p class="gender-age">
                         <span class="gender"><%= m.gender %></span>
                         <span class="age right"><%= m.age %></span>
-                    </p>
-                    <p class="cetya">
-                        <%= m.cetya_name %>
                     </p>
                 </div>                
             <% end %>

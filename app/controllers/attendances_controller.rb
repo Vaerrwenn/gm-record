@@ -1,9 +1,20 @@
 class AttendancesController < ApplicationController
-    def show
-        @event = Event.find(params[:id])
-        @attendees = Attendance.select("attendances.*, members.name").
-                                joins("JOIN members ON attendances.member_id = members.id").
-                                where("attendances.event_id = ?", @event.id)
+    def create
+      @event = Event.find(params[:event_id])
+      @attendance = @event.attendances.create(attendance_params)
+      if @attendance.save
+        flash[:success] = "Data Berhasil dibuat"
+        redirect_to @event
+      else
+        flash[:error] = "Terjadi masalah saat membuat data"
+        redirect_to @event
+      end
+    end
+    
+    private
+
+    def attendance_params
+      params.require(:attendance).permit(member_ids: [])
     end
     
 end

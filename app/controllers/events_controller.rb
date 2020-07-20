@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
     def index
-        @events = Event.all
+        # @events = Event.all
+        @q = Event.ransack(params[:q])
+        @events = @q.result
     end
     
     def new
@@ -20,6 +22,10 @@ class EventsController < ApplicationController
 
     def show
         @event = Event.find(params[:id])
+        @members = Member.select(:id, :name)
+        @attendance = Attendance.select("attendances.*, members.name").
+                                joins("JOIN members ON attendances.member_id = members.id").
+                                where("attendances.event_id = ?", @event.id)
     end
     
     def edit

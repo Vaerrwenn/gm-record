@@ -1,8 +1,9 @@
 class MembersController < ApplicationController
     def index
-        @members = Member.select("members.*, cetyas.cetya_name")
-                         .joins("JOIN cetyas ON members.cetya_id = cetyas.id ")
-        # select members.*, cetyas.cetya_name from members join cetyas on m.cetya_id = c.id 
+        @q = Member.ransack(params[:q])
+        # @members = Member.select("members.*, cetyas.cetya_name")
+        #                  .joins("JOIN cetyas ON members.cetya_id = cetyas.id ")
+        @members = @q.result(disctinct: true).includes(:cetya)
         @members.each do |m|
             m.age = change_date_null(m.date_of_birth)
         end

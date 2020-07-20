@@ -1,0 +1,11 @@
+<%= search_form_for @q do |f| %>
+    <div class="col l6">
+        <%= f.search_field :name_cont, class: "form-control", placeholder: "Nama" %>
+    </div>
+    <div class="col l6">
+        <%= f.search_field :cetya_cetya_name_cont, class: "form-control", placeholder: "Cetya" %>
+    </div>
+    <div class="col l12">
+        <%= f.submit class: "btn btn-primary" %>
+    </div>
+<% end %>

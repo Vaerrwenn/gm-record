@@ -15,4 +15,16 @@
         <span class="col l4">Jumlah kehadiran: </span>
         <span class="col l8">: <%= @event.attendee_number %></span>
     </div>
+    <div class="row">
+        <div class="divider"></div>
+    </div>
+    <div class="row">
+        <span>Data Kehadiran</span>
+    </div>
+    <div class="row">
+        <%= render  "attendance_form" %>
+    </div>
+    <div class="row">
+        <%= render  "event_attendance" %>
+    </div>
 </div>

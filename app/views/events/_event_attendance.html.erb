@@ -1,0 +1,7 @@
+<% if @attendance.blank? %>
+    <div class="col l12">Tidak ada Data.</div>
+<% else %>
+    <% @attendance.each do |a| %>
+        <%= a.name %> | 
+    <% end %>
+<% end %>
