@@ -1,0 +1,14 @@
+<%= simple_form_for @attendance do |f| %>
+    <%= f.association :event,
+        label: "Acara",
+        error: "Acara harus dipilih!",
+        collection: Event.all.order(:name),
+        label_method: :name,
+        prompt: "-Pilih Acara-" %>
+    <div class="col" style="margin-top: 10px; margin-bottom: 10px;">Umat GM yang hadir: </div>
+    <%= f.association :member,
+        label: false,
+        as: :check_boxes,
+        label_method: lambda { |m| "<span>#{m.name}</span><br >".html_safe }  %>
+    <%= f.button :submit, "Simpan Data", class: "btn-margin-r-10", style: "margin-top: 15px;" %>
+<% end %>

@@ -1,20 +1,32 @@
 class AttendancesController < ApplicationController
+    def index
+      @attendances = Attendance.all
+    end
+    
+    def show
+      @attendance = Attendance.find()
+    end
+    
+    def new
+      @attendance = Attendance.new
+    end
+    
     def create
-      @event = Event.find(params[:event_id])
-      @attendance = @event.attendances.create(attendance_params)
+      @attendance = Attendance.new(attendance_params)
       if @attendance.save
-        flash[:success] = "Data Berhasil dibuat"
-        redirect_to @event
+        flash[:success] = "Attendance successfully created"
+        redirect_to @attendance
       else
-        flash[:error] = "Terjadi masalah saat membuat data"
-        redirect_to @event
+        flash[:error] = "Something went wrong"
+        render 'new'
       end
     end
+    
     
     private
 
     def attendance_params
-      params.require(:attendance).permit(member_ids: [])
+      params.require(:attendance).permit(:members)
     end
     
 end
