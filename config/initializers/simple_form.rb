@@ -57,11 +57,20 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: :span, class: :hint }
     b.use :error, wrap_with: { tag: :span, class: :error }
 
+
     ## full_messages_for
     # If you want to display the full error message for the attribute, you can
     # use the component :full_error, like:
     #
     # b.use :full_error, wrap_with: { tag: :span, class: :error }
+  end
+
+  config.wrappers :my_checkbox, tag: 'div', class: "col l12", error_class: 'has-error' do |b|
+    b.use :input do |ba|
+      b.use :label, wrap_with: {tag: :span}
+    end
+    b.use :error, wrap_with: { tag: :span, class: 'help-block' }
+    b.use :hint,  wrap_with: { tag: :p, class: 'help-block' }
   end
 
   # The default wrapper to be used by the FormBuilder.

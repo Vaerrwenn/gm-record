@@ -27,12 +27,26 @@
             </ul>
         </li>
     </ul>
-    <ul class="right">
+    <% if user_signed_in? %>
+      <ul class="right">
         <li>
-            <a class="nav-menu-btn regis-button btn" style="margin-right: 10px;">Daftar</a>
+            <span><%= current_user.email %></span>
         </li>
         <li>
-             <a class="nav-menu-btn signin-button btn" style="margin-right: 20px;">Masuk</a>
+          <%= link_to  "Keluar", destroy_user_session_path, 
+              method: :delete , class: "nav-menu-btn btn red darken-4" %>
         </li>
-    </ul>
+      </ul>
+    <% else %>
+      <ul class="right">
+          <li>
+            <%= link_to  "Daftar", user_registration_path, 
+                class: "nav-menu-btn btn regis-button" %>
+          </li>
+          <li>
+            <%= link_to  "Masuk", new_user_session_path, 
+                class: "nav-menu-btn btn sign-in-button" %>
+          </li>
+      </ul>
+    <% end %>
 </div>
