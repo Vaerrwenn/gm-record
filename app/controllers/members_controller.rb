@@ -32,7 +32,10 @@ class MembersController < ApplicationController
   end
 
   def show
-      @member = Member.find(params[:id])
+    #   @member = Member.find(params[:id])
+      @member = Member.select("members.*, cetyas.cetya_name")
+                      .joins("JOIN cetyas ON members.cetya_id = cetyas.id")
+                      .find(params[:id])
       @member.age = change_date_null(@member.date_of_birth)
       @member.place_of_birth = change_null_to_hyphen(@member.place_of_birth)
       @member.phone = change_null_to_hyphen(@member.phone)
@@ -46,7 +49,11 @@ class MembersController < ApplicationController
   
   def update
       @member = Member.find(params[:id])
-      @member.age = age_counter(@member.date_of_birth)
+      if @member.date_of_birth.blank?
+        @member.age = "-"
+      else
+        @member.age = age_counter(@member.date_of_birth)
+      end
       if @member.update_attributes(member_params)
         redirect_to @member
       else

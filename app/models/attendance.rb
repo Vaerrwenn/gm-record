@@ -2,10 +2,17 @@ class Attendance < ApplicationRecord
   belongs_to :event
   belongs_to :member
 
-  def save_attendance(attendance)
-    member_array = attendance.member_id
-    member_array.each do |ma|
-      # TODO: Insert statement?
-    end
-  end
+  validates :member, uniqueness: true
+
+  # accepts_nested_attributes_for :member, reject_if: ->(attributes){ attributes['id'].blank? }, allow_destroy: true
+  
+  
+  # def save_attendance(attendance)
+  #   attendance_event = attenance[:event_id]
+  #   attendance_members = attendance[:member_id]
+
+  #   attendance_members.each do |am|
+      
+  #   end
+  # end
 end

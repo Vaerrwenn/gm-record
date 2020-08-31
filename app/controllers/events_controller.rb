@@ -24,9 +24,10 @@ class EventsController < ApplicationController
   def show
       @event = Event.find(params[:id])
       @members = Member.select(:id, :name)
-      @attendance = Attendance.select("attendances.*, members.name").
+      @attendance = Attendance.select("attendances.*, members.name, members.id AS member_id").
                               joins("JOIN members ON attendances.member_id = members.id").
                               where("attendances.event_id = ?", @event.id)
+      @attendance_number = Attendance.count
   end
   
   def edit

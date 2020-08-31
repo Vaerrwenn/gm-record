@@ -12,14 +12,23 @@
         <span class="col l8">: <%= @event.location %></span>
     </div>
     <div class="row">
-        <span class="col l4">Jumlah kehadiran: </span>
-        <span class="col l8">: <%= @event.attendee_number %></span>
+        <span class="col l4">Jumlah Kehadiran: </span>
+        <span class="col l8">: <%= @attendance_number %></span>
     </div>
     <div class="row">
         <div class="divider"></div>
     </div>
     <div class="row">
-        <span>Data Kehadiran</span>
+        <span>Data Kehadiran: </span>
+    </div>
+    <div class="flex-container">
+        <% @attendance.each do |a| %>
+            <div class="flex-content-members tooltipped" data-tooltip="Klik Nama untuk lihat detail">
+                <p class="name">
+                    <%= link_to member_path(a.member_id) do %><%= a.name %><% end %>
+                </p>
+            </div>                
+        <% end %>
     </div>
 
 </div>
