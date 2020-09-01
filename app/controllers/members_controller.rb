@@ -8,6 +8,7 @@ class MembersController < ApplicationController
       @q.sorts = "name asc" if @q.sorts.empty?
       @members = @q.result(disctinct: true)
                    .includes(:cetya)
+                   .paginate(page: params[:page], per_page: 12)
                    
       @members.each do |m|
           m.age = change_date_null(m.date_of_birth)
