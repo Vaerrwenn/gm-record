@@ -1,11 +1,11 @@
 <div class="container">
+    <% flash.each do |type, msg| %>
+        <div class="row alert alert-<%= type %>" role="alert"><%= msg %></div>
+    <% end %>
     <div class="row">
         <h4>Pengisian Data Kehadiran</h4>
     </div>
     <%= render  "form" %>
-    <div class="row">
-        <%= @error_msg %>
-    </div>
     <div class="row">
     </div>
 </div>

@@ -5,7 +5,10 @@ class MembersController < ApplicationController
       @q = Member.ransack(params[:q])
       # @members = Member.select("members.*, cetyas.cetya_name")
       #                  .joins("JOIN cetyas ON members.cetya_id = cetyas.id ")
-      @members = @q.result(disctinct: true).includes(:cetya)
+      @q.sorts = "name asc" if @q.sorts.empty?
+      @members = @q.result(disctinct: true)
+                   .includes(:cetya)
+                   
       @members.each do |m|
           m.age = change_date_null(m.date_of_birth)
       end
@@ -32,7 +35,6 @@ class MembersController < ApplicationController
   end
 
   def show
-    #   @member = Member.find(params[:id])
       @member = Member.select("members.*, cetyas.cetya_name")
                       .joins("JOIN cetyas ON members.cetya_id = cetyas.id")
                       .find(params[:id])
@@ -41,6 +43,12 @@ class MembersController < ApplicationController
       @member.phone = change_null_to_hyphen(@member.phone)
       @member.address = change_null_to_hyphen(@member.address)
       @member.line_id = change_null_to_hyphen(@member.line_id)
+
+      @events_attended = Attendance.select("attendances.*, events.name")
+                               .joins("JOIN members ON members.id = attendances.member_id")
+                               .joins("JOIN events ON events.id = attendances.event_id")
+                               .where("members.id = ?", @member.id)
+                               .order("events.start_date DESC")
   end
 
   def edit

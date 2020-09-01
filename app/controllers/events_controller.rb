@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   def index
       # @events = Event.all
       @q = Event.ransack(params[:q])
+      @q.sorts = "start_date desc" if @q.sorts.empty?
       @events = @q.result
   end
   
@@ -26,8 +27,8 @@ class EventsController < ApplicationController
       @members = Member.select(:id, :name)
       @attendance = Attendance.select("attendances.*, members.name, members.id AS member_id").
                               joins("JOIN members ON attendances.member_id = members.id").
-                              where("attendances.event_id = ?", @event.id)
-      @attendance_number = Attendance.count
+                              where("attendances.event_id = ?", @event.id).distinct
+      @attendance_number = Attendance.where("event_id = ?", @event.id).distinct.count
   end
   
   def edit

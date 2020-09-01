@@ -44,4 +44,19 @@
         <span class="col l4">ID Line</span>
         <span class="col l8">: <%= @member.line_id %></span>
     </div>
+    <div class="row">
+        <div class="divider"></div>
+    </div>
+    <div class="row">
+        <span>Data Kehadiran: </span>
+    </div>
+    <div class="flex-container">
+        <% @events_attended.each do |e| %>
+            <div class="flex-content-members tooltipped" data-tooltip="Klik Nama Acara untuk lihat detail">
+                <p class="name">
+                    <%= link_to event_path(e.event_id) do %><%= e.name %><% end %>
+                </p>
+            </div>                
+        <% end %>
+    </div>
 </div>

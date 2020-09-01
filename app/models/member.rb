@@ -1,7 +1,7 @@
 class Member < ApplicationRecord
     belongs_to :cetya
     has_many :attendances
-    has_many :events, through: :attendances
+    has_many :events, through: :attendances, dependent: :destroy
     validates :name, presence: true, length: {minimum:3}
     validates :gender, presence: true
 end

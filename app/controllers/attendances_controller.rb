@@ -20,11 +20,11 @@ class AttendancesController < ApplicationController
     # puts "Yeahh"
     
     if @attendance.save
-      flash[:success] = "Successfully created..."
+      flash[:success] = "Successfully created"
       redirect_to new_attendance_path
     else
       @error_msg = @attendance.errors.full_messages
-      flash[:error] = "Failed to save"
+      flash[:error] = @error_msg
       redirect_to new_attendance_path
     end
   end

@@ -2,7 +2,7 @@ class Attendance < ApplicationRecord
   belongs_to :event
   belongs_to :member
 
-  validates :member, uniqueness: true
+  # validates :member, uniqueness: true
 
   # accepts_nested_attributes_for :member, reject_if: ->(attributes){ attributes['id'].blank? }, allow_destroy: true
   
