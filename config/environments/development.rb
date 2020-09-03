@@ -29,6 +29,7 @@ Rails.application.configure do
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
+  # HAVE TO CHANGE THIS WHEN DEPLOYING TO PRODUCTION STAGE
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.

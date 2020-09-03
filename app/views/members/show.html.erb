@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row show-title">
-        <h4><%= @member.name %></h4>
+        <h5><%= @member.name %></h5>
         <div class="divider"></div>
     </div>
     <div class="row buttons">
@@ -13,36 +13,45 @@
         <% end %>
     </div>
     <div class="row">
-        <span class="col l4">Cetya</span>
-        <span class="col l8">: <%= @member.cetya_name %></span>
-    </div>
-    <div class="row">
-        <span class="col l4">Jenis Kelamin</span>
-        <span class="col l8">: <%= @member.gender %></span>
-    </div>
-    <div class="row">
-        <span class="col l4">Tempat dan Tanggal Lahir</span>
-        <span class="col l8">: <%= @member.place_of_birth %>, <%= @member.date_of_birth.blank? ? "-" : @member.date_of_birth.strftime("%d-%b-%Y")  %></span>
-    </div>
-    <div class="row">
-        <span class="col l4">Umur</span>
-        <span class="col l4">: <%= @member.age %></span>
-    </div>
-    <div class="row">
-        <span class="col l4">Nomor HP</span>
-        <span class="col l8">: <%= @member.phone %></span>
-    </div>
-    <div class="row">
-        <span class="col l4">Alamat</span>
-        <span class="col l8">: <%= @member.address %></span>
-    </div>
-    <div class="row">
-        <span class="col l4">Pendidikan terakhir</span>
-        <span class="col l4">: <%= @member.education %></span>
-    </div>
-    <div class="row">
-        <span class="col l4">ID Line</span>
-        <span class="col l8">: <%= @member.line_id %></span>
+        <div class="col l6">
+            <div class="row">
+                <span class="col l4">Cetya</span>
+                <span class="col l8">: <%= @member.cetya_name %></span>
+            </div>
+            <div class="row">
+                <span class="col l4">Jenis Kelamin</span>
+                <span class="col l8">: <%= @member.gender %></span>
+            </div>
+            <div class="row">
+                <span class="col l4">Tempat dan Tanggal Lahir</span>
+                <span class="col l8">: <%= @member.place_of_birth %>, <%= @member.date_of_birth.blank? ? "-" : @member.date_of_birth.strftime("%d-%b-%Y")  %></span>
+            </div>
+            <div class="row">
+                <span class="col l4">Umur</span>
+                <span class="col l4">: <%= @member.age %></span>
+            </div>
+            <div class="row">
+                <span class="col l4">Nomor HP</span>
+                <span class="col l8">: <%= @member.phone %></span>
+            </div>
+            <div class="row">
+                <span class="col l4">Alamat</span>
+                <span class="col l8">: <%= @member.address %></span>
+            </div>
+            <div class="row">
+                <span class="col l4">Pendidikan terakhir</span>
+                <span class="col l4">: <%= @member.education %></span>
+            </div>
+            <div class="row">
+                <span class="col l4">ID Line</span>
+                <span class="col l8">: <%= @member.line_id %></span>
+            </div>
+        </div>
+        <% if @member.avatar.attached? %>
+            <div class="col l6">
+                <img class="member-avatar" src="<%= (url_for(@member.avatar)) %>" alt="">
+            </div>
+        <% end %>
     </div>
     <div class="row">
         <div class="divider"></div>

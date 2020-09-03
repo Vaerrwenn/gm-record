@@ -32,6 +32,7 @@ gem 'simple_form'
 gem 'devise'
 # gem 'will_paginate', '~> 3.3.0'
 gem 'will_paginate-materialize', git: 'https://github.com/mldoscar/will_paginate-materialize', branch: 'master'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

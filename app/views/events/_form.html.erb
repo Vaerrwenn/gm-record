@@ -10,6 +10,10 @@
     <%= f.input :location,
         label: "Lokasi Acara",
         error: "Lokasi Acara harus diisi!" %>
+    <%= f.input :cover, 
+        as: :file,
+        label: "Cover/Art: ",
+        input_html: { class: "btn-file"} %>
     <%= f.button :submit, "Simpan Data", class: "btn-margin-r-10" %>
     <%= f.button :button, "Hapus Formulir", 
         type: :reset, class: "btn btn-danger" %>

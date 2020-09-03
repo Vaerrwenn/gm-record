@@ -86,7 +86,7 @@ class MembersController < ApplicationController
   def member_params
       params.require(:member).permit(:name, :phone, :address, :cetya_id,
                                       :gender, :education, :date_of_birth,
-                                      :place_of_birth, :line_id)
+                                      :place_of_birth, :line_id, :avatar)
   end
 
   def age_counter(dob)

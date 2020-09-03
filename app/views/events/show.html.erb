@@ -3,6 +3,11 @@
         <h4><%= @event.name %></h4>
         <div class="divider"></div>
     </div>
+    <% if @event.cover.attached? %>
+        <div class="row">
+            <img class="event-cover" src="<%= (url_for(@event.cover)) %>" alt="">
+        </div>
+    <% end %>
     <div class="row">
         <span class="col l4">Tanggal Acara: </span>
         <span class="col l8">: <%= @event.start_date %></span>
