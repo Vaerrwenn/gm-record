@@ -4,7 +4,7 @@ class EventsController < ApplicationController
       # @events = Event.all
       @q = Event.ransack(params[:q])
       @q.sorts = "start_date desc" if @q.sorts.empty?
-      @events = @q.result
+      @events = @q.result.paginate(page: params[:page], per_page: 4)
   end
   
   def new

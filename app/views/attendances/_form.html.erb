@@ -9,6 +9,7 @@
     <%= f.association :member,
         error: "Umat harus dipilih!",
         label: "Umat yang hadir:",
+        collection: Member.all.order(:name),
         # as: :check_boxes,
         # label_method: lambda { |m| "<span>#{m.name}</span><br >".html_safe },
         include_hidden: false  %>

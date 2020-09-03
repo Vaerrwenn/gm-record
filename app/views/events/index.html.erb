@@ -13,13 +13,14 @@
         <% else %>
         <div class="flex-container">
             <% @events.each do |e| %>
+                <% attendance_number = Attendance.where("event_id = ?", e.id).distinct.count %>
                 <div class="flex-content-events tooltipped" data-tooltip="Klik Nama Acara untuk lihat detail">
                     <p class="name">
                         <b><%= link_to event_path(e) do %><%= e.name %><% end %></b>
                     </p>
                     <p class="date-att-num">
                         <span class="start-date"><%= e.start_date.strftime("%d %B %Y") %></span>
-                        <span class="att-num right"><%= e.attendee_number %></span>
+                        <span class="att-num right">Jumlah yang hadir: <%= attendance_number %> orang</span>
                     </p>
                     <p class="loc actions">
                         <span class="loc">
@@ -40,5 +41,8 @@
             <% end %>
         </div>
         <% end %>
+    </div>
+    <div class="row">
+        <%= will_paginate @events %>
     </div>
 </div>
