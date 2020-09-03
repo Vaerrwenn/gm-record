@@ -33,7 +33,7 @@
     <%= f.input :avatar, 
         as: :file,
         label: "Foto",
-        input_html: { class: "btn-file"} %>
+        input_html: { class: "btn-file", accept: "image/*" } %>
     <%= f.button :submit, "Simpan Data", class: "btn-margin-r-10" %>
     <%= f.button :button, "Hapus Formulir", 
         type: :reset, class: "btn btn-danger" %>
