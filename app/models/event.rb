@@ -9,7 +9,7 @@ class Event < ApplicationRecord
     validate :acceptable_image
 
     def acceptable_image
-        return unless avatar.attached?
+        return unless cover.attached?
         
         unless avatar.byte_size <= 5.megabyte
             errors.add(:avatar, "Ukuran gambar terlalu besar")
