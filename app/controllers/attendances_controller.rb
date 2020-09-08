@@ -14,25 +14,34 @@ class AttendancesController < ApplicationController
   end
   
   def create
-    @attendance = Attendance.create(attendance_params)
-    # puts @attendance[:event_id]
-    # puts @attendance[:member_id]
+    # puts attendance_params[:member_id]
+    # @attendance = Attendance.new(attendance_params)
+    
     # puts "Yeahh"
     
-    if @attendance.save
-      flash[:success] = "Successfully created"
-      redirect_to new_attendance_path
-    else
-      @error_msg = @attendance.errors.full_messages
-      flash[:error] = @error_msg
-      redirect_to new_attendance_path
+    # if @attendance.save!
+    #   flash[:success] = "Successfully created"
+    #   redirect_to new_attendance_path
+    # else
+    #   @error_msg = @attendance.errors.full_messages
+    #   flash[:error] = @error_msg
+    #   redirect_to new_attendance_path
+    # end
+    Attendance.bulk_insert(:event_id, :member_id, :created_at, :updated_at) do |worker|
+      attendance_params[:member_id].each do |member|
+        event = attendance_params[:event_id]
+        worker.add [event, member]
+      end
     end
+
+    redirect_to new_attendance_path
+
   end
-  
+
   private
 
   def attendance_params
-    params.require(:attendance).permit(:event_id, :member_id)
+    params.require(:attendance).permit(:event_id, member_id: [])
   end
     
 end
