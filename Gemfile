@@ -25,7 +25,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 
 # Use Active Storage variant
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 
 gem 'materialize-sass', '~> 1.0.0'
 gem 'simple_form'
